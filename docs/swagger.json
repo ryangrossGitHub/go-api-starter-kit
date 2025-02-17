@@ -1,0 +1,54 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Item API",
+        "contact": {}
+    },
+    "paths": {
+        "/items": {
+            "get": {
+                "description": "Responds with the list of all items as JSON.",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "items"
+                ],
+                "summary": "Get all items",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/item_model.Item"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "item_model.Item": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "price": {
+                    "type": "number"
+                },
+                "rating": {
+                    "type": "string"
+                },
+                "releaseDate": {
+                    "type": "integer"
+                },
+                "title": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

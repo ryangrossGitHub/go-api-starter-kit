@@ -1,0 +1,34 @@
+definitions:
+  item_model.Item:
+    properties:
+      id:
+        type: integer
+      price:
+        type: number
+      rating:
+        type: string
+      releaseDate:
+        type: integer
+      title:
+        type: string
+    type: object
+info:
+  contact: {}
+  title: Item API
+paths:
+  /items:
+    get:
+      description: Responds with the list of all items as JSON.
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/item_model.Item'
+            type: array
+      summary: Get all items
+      tags:
+      - items
+swagger: "2.0"
