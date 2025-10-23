@@ -15,7 +15,8 @@ func main() {
 	router := gin.Default()
 	router.GET("/docs/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 
-	item_controller.Setup(router)
+	item_controller.GetItems(router)
+	item_controller.PostItem(router)
 
 	router.Run("localhost:8080")
 }

@@ -4,6 +4,7 @@ definitions:
       id:
         type: integer
       price:
+        format: float32
         type: number
       rating:
         type: string
@@ -29,6 +30,27 @@ paths:
               $ref: '#/definitions/item_model.Item'
             type: array
       summary: Get all items
+      tags:
+      - items
+    post:
+      consumes:
+      - application/json
+      description: Creates a new item with the provided details
+      parameters:
+      - description: Item details for creation
+        in: body
+        name: item
+        required: true
+        schema:
+          $ref: '#/definitions/item_model.Item'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/item_model.Item'
+      summary: Create a new item
       tags:
       - items
 swagger: "2.0"
